@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             //Here you place your menu items
             ListTile(
-              tileColor: Colors.grey,
+              tileColor: index==0?Colors.grey:Colors.white,
               leading: Icon(Icons.home),
               title: Text('Home', style: TextStyle(fontSize: 18,color: index==0?Colors.blue:Colors.pink)),
               focusColor: Colors.blue,
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             ListTile(
-              tileColor: Colors.grey,
+              tileColor: index==1?Colors.grey:Colors.white,
               leading: Icon(Icons.grid_view_sharp),
               title: Text('Categories', style: TextStyle(fontSize: 18, color: index==1?Colors.blue:Colors.pink)),
               onTap: () {
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              tileColor: Colors.grey[100],
+              tileColor: index==2?Colors.grey:Colors.white,
               leading: Icon(Icons.search),
               title: Text('Search', style: TextStyle(fontSize: 18,color: index==2?Colors.blue:Colors.pink)),
               onTap: () {
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              tileColor: Colors.grey,
+              tileColor: index==3?Colors.grey:Colors.white,
               leading: Icon(Icons.app_registration),
               title: Text('Register with us', style: TextStyle(fontSize: 18,color: index==3?Colors.blue:Colors.pink)),
               onTap: () {
