@@ -7,6 +7,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,32 +29,54 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       endDrawer: Drawer(
-
         elevation: 10.0,
         child: ListView(
           children: <Widget>[
             //Here you place your menu items
             ListTile(
+              tileColor: Colors.grey,
               leading: Icon(Icons.home),
-              title: Text('Home Page', style: TextStyle(fontSize: 18)),
+              title: Text('Home', style: TextStyle(fontSize: 18,color: index==0?Colors.blue:Colors.pink)),
+              focusColor: Colors.blue,
               onTap: () {
+                setState(() {
+                  index = 0;
+                });
                 // Here you can give your route to navigate
-
               },
             ),
 
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings', style: TextStyle(fontSize: 18)),
+              tileColor: Colors.grey,
+              leading: Icon(Icons.grid_view_sharp),
+              title: Text('Categories', style: TextStyle(fontSize: 18, color: index==1?Colors.blue:Colors.pink)),
               onTap: () {
+                setState(() {
+                  index = 1;
+                });
                 // Here you can give your route to navigate
-
               },
             ),
             ListTile(
-              leading: Icon(Icons.close),
-              title: Text('Close Drawer', style: TextStyle(fontSize: 18)),
+              tileColor: Colors.grey[100],
+              leading: Icon(Icons.search),
+              title: Text('Search', style: TextStyle(fontSize: 18,color: index==2?Colors.blue:Colors.pink)),
               onTap: () {
+                setState(() {
+                  index = 2;
+                });
+                // Here you can give your route to navigate
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              tileColor: Colors.grey,
+              leading: Icon(Icons.app_registration),
+              title: Text('Register with us', style: TextStyle(fontSize: 18,color: index==3?Colors.blue:Colors.pink)),
+              onTap: () {
+                setState(() {
+                  index = 3;
+                });
                 // Here you can give your route to navigate
                 Navigator.of(context).pop();
               },
@@ -61,7 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-
       bottomNavigationBar: Container(
         height: 20,
         child: Center(
