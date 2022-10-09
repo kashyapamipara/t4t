@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t4t/screens/home_screen_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -28,6 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      body: SingleChildScrollView(child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: HomeBody(
+
+        ),
+      )),
       endDrawer: Drawer(
         elevation: 10.0,
         child: ListView(
@@ -85,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 20,
+        height: 20,color: Colors.blue,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
