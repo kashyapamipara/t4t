@@ -34,51 +34,69 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             //Here you place your menu items
             ListTile(
-              tileColor: index==0?Colors.grey:Colors.white,
+              tileColor:
+                  index == 0 ? Colors.grey.withOpacity(0.3) : Colors.white,
               leading: Icon(Icons.home),
-              title: Text('Home', style: TextStyle(fontSize: 18,color: index==0?Colors.blue:Colors.pink)),
+              title: Text('Home',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: index == 0 ? Colors.blue : Colors.pink)),
               focusColor: Colors.blue,
               onTap: () {
                 setState(() {
                   index = 0;
+                  Navigator.of(context).pop();
                 });
                 // Here you can give your route to navigate
               },
             ),
 
             ListTile(
-              tileColor: index==1?Colors.grey:Colors.white,
+              tileColor:
+                  index == 1 ? Colors.grey.withOpacity(0.3) : Colors.white,
               leading: Icon(Icons.grid_view_sharp),
-              title: Text('Categories', style: TextStyle(fontSize: 18, color: index==1?Colors.blue:Colors.pink)),
+              title: Text('Categories',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: index == 1 ? Colors.blue : Colors.pink)),
               onTap: () {
                 setState(() {
                   index = 1;
+                  Navigator.of(context).pop();
                 });
                 // Here you can give your route to navigate
               },
             ),
             ListTile(
-              tileColor: index==2?Colors.grey:Colors.white,
+              tileColor:
+                  index == 2 ? Colors.grey.withOpacity(0.3) : Colors.white,
               leading: Icon(Icons.search),
-              title: Text('Search', style: TextStyle(fontSize: 18,color: index==2?Colors.blue:Colors.pink)),
+              title: Text('Search',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: index == 2 ? Colors.blue : Colors.pink)),
               onTap: () {
                 setState(() {
                   index = 2;
+                  Navigator.of(context).pop();
                 });
                 // Here you can give your route to navigate
-                Navigator.of(context).pop();
               },
             ),
             ListTile(
-              tileColor: index==3?Colors.grey:Colors.white,
+              tileColor:
+                  index == 3 ? Colors.grey.withOpacity(0.3) : Colors.white,
               leading: Icon(Icons.app_registration),
-              title: Text('Register with us', style: TextStyle(fontSize: 18,color: index==3?Colors.blue:Colors.pink)),
+              title: Text('Register with us',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: index == 3 ? Colors.blue : Colors.pink)),
               onTap: () {
                 setState(() {
                   index = 3;
+                  Navigator.of(context).pop();
                 });
                 // Here you can give your route to navigate
-                Navigator.of(context).pop();
               },
             ),
           ],
@@ -98,6 +116,114 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      body: index == 0
+          ? Container(
+              child: Text('this is home screen'),
+            )
+          : (index == 1
+              ? Container(
+                  child: Text('this is categories screen'),
+                )
+              : (index == 2
+                  ? Container(
+                      child: Text('this is Search screen'),
+                    )
+                  : Container(padding: EdgeInsets.all(15),
+                      child: Column(
+                        children: [
+                          Expanded(
+                              child: Text(
+                            'REGISTER FOR FREE!!',
+                            style: TextStyle(fontSize: 35),
+                          )),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  labelText: 'Business Name',
+                                  border: OutlineInputBorder()),
+                              // The validator receives the text that the user has entered.
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            labelText: 'First Name',
+                                            border: OutlineInputBorder()),
+                                        // The validator receives the text that the user has entered.
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter First Name';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Expanded(
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            labelText: 'Last Name',
+                                            border: OutlineInputBorder()),
+                                        // The validator receives the text that the user has entered.
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Please enter Last name';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  labelText: 'Mobile Number:',
+                                  border: OutlineInputBorder()),
+                              // The validator receives the text that the user has entered.
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  labelText: 'Address',
+                                  border: OutlineInputBorder()),
+                              // The validator receives the text that the user has entered.
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          ElevatedButton(
+                              onPressed: () => {}, child: Text('Submit'))
+                        ],
+                      ),
+                    ))),
     );
   }
 }
