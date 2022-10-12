@@ -8,15 +8,25 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   int index = 0;
+  // Initial Selected Value
+  String dropdownvalue = 'Item 1';
+
+  // List of items in our dropdown menu
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        leading: Icon(
-          Icons.image,
-          color: Colors.black,
-          size: 35,
+        backgroundColor: Color.fromARGB(255, 46, 49, 146),
+        leading: Container(
+          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+          child: Image.asset('t4t.png'),
         ),
         actions: [
           Builder(
@@ -118,17 +128,228 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: index == 0
           ? Container(
-              child: Text('this is home screen'),
-            )
+              child: Column(
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      suffixIcon: Icon(
+                        Icons.search,
+                        size: 25,
+                      ),
+                      fillColor: Colors.grey.withOpacity(0.3),
+                      hintText: 'Search Here...',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 200,
+                  child: Image.asset('test.jpeg'),
+                  color: Colors.blue,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 200,
+                              childAspectRatio: 3 / 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10),
+                      itemCount: 10,
+                      itemBuilder: (BuildContext ctx, index) {
+                        return Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(),
+                          child: Image.asset(
+                            'test1.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      }),
+                ),
+              ],
+            ))
           : (index == 1
               ? Container(
                   child: Text('this is categories screen'),
                 )
               : (index == 2
                   ? Container(
-                      child: Text('this is Search screen'),
+                      padding: EdgeInsets.all(15),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(
+                              child: Text(
+                            'SEARCH',
+                            style: TextStyle(fontSize: 35),
+                          )),
+                          Expanded(
+                              child: Container(
+                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'CITY :',
+                                          style: TextStyle(fontSize: 24),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: DropdownButtonFormField(
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder()),
+                                          // Initial Value
+                                          value: dropdownvalue,
+                                          // Down Arrow Icon
+                                          icon: const Icon(
+                                              Icons.keyboard_arrow_down),
+                                          // Array list of items
+                                          items: items.map((String items) {
+                                            return DropdownMenuItem(
+                                              value: items,
+                                              child: Text(items),
+                                            );
+                                          }).toList(),
+                                          // After selecting the desired option,it will
+                                          // change button value to selected value
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              dropdownvalue = newValue!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ))),
+                          Expanded(
+                              child: Container(
+                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'AREA :',
+                                          style: TextStyle(fontSize: 24),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: DropdownButtonFormField(
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder()),
+                                          // Initial Value
+                                          value: dropdownvalue,
+                                          // Down Arrow Icon
+                                          icon: const Icon(
+                                              Icons.keyboard_arrow_down),
+                                          // Array list of items
+                                          items: items.map((String items) {
+                                            return DropdownMenuItem(
+                                              value: items,
+                                              child: Text(items),
+                                            );
+                                          }).toList(),
+                                          // After selecting the desired option,it will
+                                          // change button value to selected value
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              dropdownvalue = newValue!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ))),
+                          Expanded(
+                              child: Container(
+                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'CATEGORIES :',
+                                          style: TextStyle(fontSize: 24),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: DropdownButtonFormField(
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder()),
+                                          // Initial Value
+                                          value: dropdownvalue,
+                                          // Down Arrow Icon
+                                          icon: const Icon(
+                                              Icons.keyboard_arrow_down),
+                                          // Array list of items
+                                          items: items.map((String items) {
+                                            return DropdownMenuItem(
+                                              value: items,
+                                              child: Text(items),
+                                            );
+                                          }).toList(),
+                                          // After selecting the desired option,it will
+                                          // change button value to selected value
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              dropdownvalue = newValue!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ))),
+                          Expanded(
+                              child: Container(
+                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'PIN CODE  :',
+                                          style: TextStyle(fontSize: 24),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: TextFormField(
+                                          decoration: InputDecoration(
+                                              labelText: 'Enter Pin code',
+                                              border: OutlineInputBorder()),
+                                          // The validator receives the text that the user has entered.
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Please enter some text';
+                                            }
+                                            return null;
+                                          },
+                                        ),
+                                      )
+                                    ],
+                                  ))),
+                          ElevatedButton(
+                              onPressed: () => {}, child: Text('SHOW RESULT'))
+                        ],
+                      ),
                     )
-                  : Container(padding: EdgeInsets.all(15),
+                  : Container(
+                      padding: EdgeInsets.all(15),
                       child: Column(
                         children: [
                           Expanded(
