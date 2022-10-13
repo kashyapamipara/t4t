@@ -186,8 +186,63 @@ class _HomeScreenState extends State<HomeScreen> {
             ))
           : (index == 1
               ? Container(
-                  child: Text('this is categories screen'),
-                )
+                  child: Column(children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        suffixIcon: Icon(
+                          Icons.search,
+                          size: 25,
+                        ),
+                        fillColor: Colors.grey.withOpacity(0.3),
+                        hintText: 'Search Here...',
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                      decoration: BoxDecoration(
+                        border: Border(top: BorderSide(), bottom: BorderSide()),
+                        color: Colors.limeAccent,
+                      ),
+                      height: 25,
+                      width: double.infinity,
+                      child: Center(
+                          child: Text(
+                        'All Categories',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ))),
+                    SizedBox(height: 5,),
+                    Expanded(
+                      child: GridView.builder(
+                          gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 200,
+                              childAspectRatio: 3 / 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10),
+                          itemCount: 10,
+                          itemBuilder: (BuildContext ctx, index) {
+                            return Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(),
+                              child: Image.asset(
+                                'test1.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                            );
+                          }),
+                    ),
+                ]))
               : (index == 2
                   ? Container(
                       padding: EdgeInsets.all(15),
