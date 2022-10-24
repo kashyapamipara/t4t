@@ -21,172 +21,117 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 46, 49, 146),
-        leading: Container(
-          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          child: Image.network('https://cdn140.picsart.com/371589896008211.png?to=crop&type=webp&r=310x310&q=50')
-        ),
-        actions: [
-          Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.list),
-              onPressed: () => Scaffold.of(context).openEndDrawer(),
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 46, 49, 146),
+          leading: Container(
+            margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            // child: Image.network('https://cdn140.picsart.com/371589896008211.png?to=crop&type=webp&r=310x310&q=50')
           ),
-        ],
-      ),
-      endDrawer: Drawer(
-        elevation: 10.0,
-        child: ListView(
-          children: <Widget>[
-            //Here you place your menu items
-            ListTile(
-              tileColor:
-                  index == 0 ? Colors.grey.withOpacity(0.3) : Colors.white,
-              leading: Icon(Icons.home),
-              title: Text('Home',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: index == 0 ? Colors.blue : Colors.pink)),
-              focusColor: Colors.blue,
-              onTap: () {
-                setState(() {
-                  index = 0;
-                  Navigator.of(context).pop();
-                });
-                // Here you can give your route to navigate
-              },
-            ),
-
-            ListTile(
-              tileColor:
-                  index == 1 ? Colors.grey.withOpacity(0.3) : Colors.white,
-              leading: Icon(Icons.grid_view_sharp),
-              title: Text('Categories',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: index == 1 ? Colors.blue : Colors.pink)),
-              onTap: () {
-                setState(() {
-                  index = 1;
-                  Navigator.of(context).pop();
-                });
-                // Here you can give your route to navigate
-              },
-            ),
-            ListTile(
-              tileColor:
-                  index == 2 ? Colors.grey.withOpacity(0.3) : Colors.white,
-              leading: Icon(Icons.search),
-              title: Text('Search',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: index == 2 ? Colors.blue : Colors.pink)),
-              onTap: () {
-                setState(() {
-                  index = 2;
-                  Navigator.of(context).pop();
-                });
-                // Here you can give your route to navigate
-              },
-            ),
-            ListTile(
-              tileColor:
-                  index == 3 ? Colors.grey.withOpacity(0.3) : Colors.white,
-              leading: Icon(Icons.app_registration),
-              title: Text('Register with us',
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: index == 3 ? Colors.blue : Colors.pink)),
-              onTap: () {
-                setState(() {
-                  index = 3;
-                  Navigator.of(context).pop();
-                });
-                // Here you can give your route to navigate
-              },
+          actions: [
+            Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.list),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 46, 49, 146),
-        height: 20,
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'SHARE US:',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-              )
+        endDrawer: Drawer(
+          elevation: 10.0,
+          child: ListView(
+            children: <Widget>[
+              //Here you place your menu items
+              ListTile(
+                tileColor:
+                    index == 0 ? Colors.grey.withOpacity(0.3) : Colors.white,
+                leading: Icon(Icons.home),
+                title: Text('Home',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: index == 0 ? Colors.blue : Colors.pink)),
+                focusColor: Colors.blue,
+                onTap: () {
+                  setState(() {
+                    index = 0;
+                    Navigator.of(context).pop();
+                  });
+                  // Here you can give your route to navigate
+                },
+              ),
+
+              ListTile(
+                tileColor:
+                    index == 1 ? Colors.grey.withOpacity(0.3) : Colors.white,
+                leading: Icon(Icons.grid_view_sharp),
+                title: Text('Categories',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: index == 1 ? Colors.blue : Colors.pink)),
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                    Navigator.of(context).pop();
+                  });
+                  // Here you can give your route to navigate
+                },
+              ),
+              ListTile(
+                tileColor:
+                    index == 2 ? Colors.grey.withOpacity(0.3) : Colors.white,
+                leading: Icon(Icons.search),
+                title: Text('Search',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: index == 2 ? Colors.blue : Colors.pink)),
+                onTap: () {
+                  setState(() {
+                    index = 2;
+                    Navigator.of(context).pop();
+                  });
+                  // Here you can give your route to navigate
+                },
+              ),
+              ListTile(
+                tileColor:
+                    index == 3 ? Colors.grey.withOpacity(0.3) : Colors.white,
+                leading: Icon(Icons.app_registration),
+                title: Text('Register with us',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: index == 3 ? Colors.blue : Colors.pink)),
+                onTap: () {
+                  setState(() {
+                    index = 3;
+                    Navigator.of(context).pop();
+                  });
+                  // Here you can give your route to navigate
+                },
+              ),
             ],
           ),
         ),
-      ),
-      body: index == 0
-          ? Container(
-              child: Column(
+        bottomNavigationBar: Container(
+          color: Color.fromARGB(255, 46, 49, 146),
+          height: 20,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      suffixIcon: Icon(
-                        Icons.search,
-                        size: 25,
-                      ),
-                      fillColor: Colors.grey.withOpacity(0.3),
-                      hintText: 'Search Here...',
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  height: 200,
-                  child: Image.network(
-                      'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
-                  color: Colors.blue,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(
-                  child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 200,
-                              childAspectRatio: 3 / 2,
-                              crossAxisSpacing: 5,
-                              mainAxisSpacing: 5),
-                      itemCount: 10,
-                      itemBuilder: (BuildContext ctx, index) {
-                        return Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(),
-                          child:  Image.network(
-                              'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
-                        );
-                      }),
-                ),
+                Text(
+                  'SHARE US:',
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                )
               ],
-            ))
-          : (index == 1
-              ? Container(
-                  child: Column(children: [
+            ),
+          ),
+        ),
+        body: index == 0
+            ? Container(
+                child: Column(
+                children: [
                   SizedBox(
                     height: 10,
                   ),
@@ -208,21 +153,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  Container(
-                      decoration: BoxDecoration(
-                        border: Border(top: BorderSide(), bottom: BorderSide()),
-                        color: Colors.limeAccent,
-                      ),
-                      height: 25,
-                      width: double.infinity,
-                      child: Center(
-                          child: Text(
-                        'All Categories',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ))),
                   SizedBox(
-                    height: 5,
+                    height: 10,
+                  ),
+                  Container(
+
+                    height: 200,
+                    // child: Image.network(
+                    //     'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
+                    color: Colors.blue,
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Expanded(
                     child: GridView.builder(
@@ -235,298 +177,371 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: 10,
                         itemBuilder: (BuildContext ctx, index) {
                           return Container(
+                            
                             alignment: Alignment.center,
-                            decoration: BoxDecoration(),
-                            child:  Image.network(
-                                'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
+                            decoration: BoxDecoration(
+                              color: Colors.blue
+                            ),
+                            // child: Image.network(
+                            //     'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
                           );
                         }),
                   ),
-                ]))
-              : (index == 2
-                  ? Container(
-                      padding: EdgeInsets.all(15),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 10,
+                  SizedBox(height: 5,),
+                ],
+              ))
+            : (index == 1
+                ? Container(
+                    child: Column(children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          suffixIcon: Icon(
+                            Icons.search,
+                            size: 25,
                           ),
-                          Expanded(
-                              child: Text(
-                            'SEARCH',
-                            style: TextStyle(fontSize: 35),
-                          )),
-                          Expanded(
-                              child: Container(
-                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'CITY :',
-                                          style: TextStyle(fontSize: 24),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: DropdownButtonFormField(
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder()),
-                                          // Initial Value
-                                          value: dropdownvalue,
-                                          // Down Arrow Icon
-                                          icon: const Icon(
-                                              Icons.keyboard_arrow_down),
-                                          // Array list of items
-                                          items: items.map((String items) {
-                                            return DropdownMenuItem(
-                                              value: items,
-                                              child: Text(items),
-                                            );
-                                          }).toList(),
-                                          // After selecting the desired option,it will
-                                          // change button value to selected value
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              dropdownvalue = newValue!;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ))),
-                          Expanded(
-                              child: Container(
-                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'AREA :',
-                                          style: TextStyle(fontSize: 24),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: DropdownButtonFormField(
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder()),
-                                          // Initial Value
-                                          value: dropdownvalue,
-                                          // Down Arrow Icon
-                                          icon: const Icon(
-                                              Icons.keyboard_arrow_down),
-                                          // Array list of items
-                                          items: items.map((String items) {
-                                            return DropdownMenuItem(
-                                              value: items,
-                                              child: Text(items),
-                                            );
-                                          }).toList(),
-                                          // After selecting the desired option,it will
-                                          // change button value to selected value
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              dropdownvalue = newValue!;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ))),
-                          Expanded(
-                              child: Container(
-                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'CATEGORIES :',
-                                          style: TextStyle(fontSize: 24),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: DropdownButtonFormField(
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder()),
-                                          // Initial Value
-                                          value: dropdownvalue,
-                                          // Down Arrow Icon
-                                          icon: const Icon(
-                                              Icons.keyboard_arrow_down),
-                                          // Array list of items
-                                          items: items.map((String items) {
-                                            return DropdownMenuItem(
-                                              value: items,
-                                              child: Text(items),
-                                            );
-                                          }).toList(),
-                                          // After selecting the desired option,it will
-                                          // change button value to selected value
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              dropdownvalue = newValue!;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  ))),
-                          Expanded(
-                              child: Container(
-                                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'PIN CODE  :',
-                                          style: TextStyle(fontSize: 24),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                              labelText: 'Enter Pin code',
-                                              border: OutlineInputBorder()),
-                                          // The validator receives the text that the user has entered.
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Please enter some text';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                      )
-                                    ],
-                                  ))),
-                          ElevatedButton(
-                              onPressed: () => {}, child: Text('SHOW RESULT'))
-                        ],
+                          fillColor: Colors.grey.withOpacity(0.3),
+                          hintText: 'Search Here...',
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
                       ),
-                    )
-                  : SingleChildScrollView(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context).size.width,
+                    ),
+                    SizedBox(height: 15),
+                    Container(
+                        decoration: BoxDecoration(
+                          border: Border(top: BorderSide(), bottom: BorderSide()),
+                          color: Colors.limeAccent,
+                        ),
+                        height: 25,
+                        width: double.infinity,
+                        child: Center(
+                            child: Text(
+                          'All Categories',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ))),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                                  maxCrossAxisExtent: 200,
+                                  childAspectRatio: 3 / 2,
+                                  crossAxisSpacing: 5,
+                                  mainAxisSpacing: 5),
+                          itemCount: 10,
+                          itemBuilder: (BuildContext ctx, index) {
+                            return Container(
+
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.blue
+                              ),
+                              // child: Image.network(
+                              //     'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
+                            );
+                          }),
+                    ),
+                  ]))
+                : (index == 2
+                    ? Container(
+                        padding: EdgeInsets.all(15),
                         child: Column(
                           children: [
-                            Text(
-                              'REGISTER FOR FREE!!',
-                              style: TextStyle(fontSize: 35),
-                            ),
                             SizedBox(
                               height: 10,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                    labelText: 'Business Name',
-                                    border: OutlineInputBorder()),
-// The validator receives the text that the user has entered.
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              child: Container(
-                                height: 50,
-                                width: MediaQuery.of(context).size.width,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                              labelText: 'First Name',
-                                              border: OutlineInputBorder()),
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Please enter First Name';
-                                            }
-                                            return null;
-                                          },
+                            Expanded(
+                                child: Text(
+                              'SEARCH',
+                              style: TextStyle(fontSize: 35),
+                            )),
+                            Expanded(
+                                child: Container(
+                                    padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'CITY :',
+                                            style: TextStyle(fontSize: 22),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        child: TextFormField(
-                                          decoration: InputDecoration(
-                                              labelText: 'Last Name',
-                                              border: OutlineInputBorder()),
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Please enter Last Name';
-                                            }
-                                            return null;
-                                          },
+                                        Expanded(
+                                          child: DropdownButtonFormField(
+                                            decoration: InputDecoration(
+                                                border: OutlineInputBorder()),
+                                            // Initial Value
+                                            value: dropdownvalue,
+                                            // Down Arrow Icon
+                                            icon: const Icon(
+                                                Icons.keyboard_arrow_down),
+                                            // Array list of items
+                                            items: items.map((String items) {
+                                              return DropdownMenuItem(
+                                                value: items,
+                                                child: Text(items),
+                                              );
+                                            }).toList(),
+                                            // After selecting the desired option,it will
+                                            // change button value to selected value
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                dropdownvalue = newValue!;
+                                              });
+                                            },
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                    labelText: 'Mobile Number',
-                                    border: OutlineInputBorder()),
-// The validator receives the text that the user has entered.
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 10),
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                    labelText: 'Address',
-                                    border: OutlineInputBorder()),
-// The validator receives the text that the user has entered.
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
+                                      ],
+                                    ))),
+                            Expanded(
+                                child: Container(
+                                    padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'AREA :',
+                                            style: TextStyle(fontSize: 22),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: DropdownButtonFormField(
+                                            decoration: InputDecoration(
+                                                border: OutlineInputBorder()),
+                                            // Initial Value
+                                            value: dropdownvalue,
+                                            // Down Arrow Icon
+                                            icon: const Icon(
+                                                Icons.keyboard_arrow_down),
+                                            // Array list of items
+                                            items: items.map((String items) {
+                                              return DropdownMenuItem(
+                                                value: items,
+                                                child: Text(items),
+                                              );
+                                            }).toList(),
+                                            // After selecting the desired option,it will
+                                            // change button value to selected value
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                dropdownvalue = newValue!;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ))),
+                            Expanded(
+                                child: Container(
+                                    padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'CATEGORIES :',
+                                            style: TextStyle(fontSize: 22),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: DropdownButtonFormField(
+                                            decoration: InputDecoration(
+                                                border: OutlineInputBorder()),
+                                            // Initial Value
+                                            value: dropdownvalue,
+                                            // Down Arrow Icon
+                                            icon: const Icon(
+                                                Icons.keyboard_arrow_down),
+                                            // Array list of items
+                                            items: items.map((String items) {
+                                              return DropdownMenuItem(
+                                                value: items,
+                                                child: Text(items),
+                                              );
+                                            }).toList(),
+                                            // After selecting the desired option,it will
+                                            // change button value to selected value
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                dropdownvalue = newValue!;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ))),
+                            Expanded(
+                                child: Container(
+                                    padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'PIN CODE  :',
+                                            style: TextStyle(fontSize: 22),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'Enter Pin code',
+                                                border: OutlineInputBorder()),
+                                            // The validator receives the text that the user has entered.
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Please enter some text';
+                                              }
+                                              return null;
+                                            },
+                                          ),
+                                        )
+                                      ],
+                                    ))),
                             ElevatedButton(
-                                onPressed: () => {}, child: Text('Submit'))
+                                onPressed: () => {}, child: Text('SHOW RESULT'))
                           ],
                         ),
-                      ),
-                    ))),
+                      )
+                    : SingleChildScrollView(
+                        child: Container(
+
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Center(
+                                child: Text(
+                                  'REGISTER FOR FREE!!',
+                                  style: TextStyle(fontSize: 35),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10, right: 10),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                      labelText: 'Business Name',
+                                      border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter some text';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10, right: 10),
+                                child: Container(
+                                  height: 50,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'First Name',
+                                                border: OutlineInputBorder()),
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Please enter First Name';
+                                              }
+                                              return null;
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'Last Name',
+                                                border: OutlineInputBorder()),
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Please enter Last Name';
+                                              }
+                                              return null;
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10, right: 10),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                      labelText: 'Mobile Number',
+                                      border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter some text';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10, right: 10),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                      labelText: 'Address',
+                                      border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter some text';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              ElevatedButton(
+                                  onPressed: () => {}, child: Text('Submit'))
+                            ],
+                          ),
+                        ),
+                      ))),
+      ),
     );
   }
 }
