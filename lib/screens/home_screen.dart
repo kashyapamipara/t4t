@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color.fromARGB(255, 46, 49, 146),
         leading: Container(
           margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          child: Image.asset('t4t.png'),
+          child: Image.network('https://cdn140.picsart.com/371589896008211.png?to=crop&type=webp&r=310x310&q=50')
         ),
         actions: [
           Builder(
@@ -113,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: Container(
+        color: Color.fromARGB(255, 46, 49, 146),
         height: 20,
         child: Center(
           child: Row(
@@ -156,7 +157,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   height: 200,
-                  child: Image.asset('test.jpeg'),
+                  child: Image.network(
+                      'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
                   color: Colors.blue,
                 ),
                 SizedBox(
@@ -175,10 +177,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Container(
                           alignment: Alignment.center,
                           decoration: BoxDecoration(),
-                          child: Image.asset(
-                            'test1.jpg',
-                            fit: BoxFit.fill,
-                          ),
+                          child:  Image.network(
+                              'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
                         );
                       }),
                 ),
@@ -237,10 +237,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Container(
                             alignment: Alignment.center,
                             decoration: BoxDecoration(),
-                            child: Image.asset(
-                              'test1.jpg',
-                              fit: BoxFit.fill,
-                            ),
+                            child:  Image.network(
+                                'https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80'),
                           );
                         }),
                   ),
