@@ -254,17 +254,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ]))
                 : (index == 2
                     ? Container(
-                        padding: EdgeInsets.all(15),
+
                         child: Column(
                           children: [
                             SizedBox(
                               height: 10,
                             ),
-                            Expanded(
-                                child: Text(
+                            Text(
                               'SEARCH',
                               style: TextStyle(fontSize: 35),
-                            )),
+                            ),
                             Expanded(
                                 child: Container(
                                     padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
