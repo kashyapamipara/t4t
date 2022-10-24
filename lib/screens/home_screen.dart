@@ -168,8 +168,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 200,
                               childAspectRatio: 3 / 2,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10),
+                              crossAxisSpacing: 5,
+                              mainAxisSpacing: 5),
                       itemCount: 10,
                       itemBuilder: (BuildContext ctx, index) {
                         return Container(
@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(),
                           child: Image.asset(
                             'test1.jpg',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         );
                       }),
@@ -221,27 +221,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         'All Categories',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ))),
-                    SizedBox(height: 5,),
-                    Expanded(
-                      child: GridView.builder(
-                          gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 200,
-                              childAspectRatio: 3 / 2,
-                              crossAxisSpacing: 10,
-                              mainAxisSpacing: 10),
-                          itemCount: 10,
-                          itemBuilder: (BuildContext ctx, index) {
-                            return Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(),
-                              child: Image.asset(
-                                'test1.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          }),
-                    ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 200,
+                                childAspectRatio: 3 / 2,
+                                crossAxisSpacing: 5,
+                                mainAxisSpacing: 5),
+                        itemCount: 10,
+                        itemBuilder: (BuildContext ctx, index) {
+                          return Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(),
+                            child: Image.asset(
+                              'test1.jpg',
+                              fit: BoxFit.fill,
+                            ),
+                          );
+                        }),
+                  ),
                 ]))
               : (index == 2
                   ? Container(
@@ -403,101 +405,128 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     )
-                  : Container(
-                      padding: EdgeInsets.all(15),
-                      child: Column(
-                        children: [
-                          Expanded(
-                              child: Text(
-                            'REGISTER FOR FREE!!',
-                            style: TextStyle(fontSize: 35),
-                          )),
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  labelText: 'Business Name',
-                                  border: OutlineInputBorder()),
-                              // The validator receives the text that the user has entered.
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                }
-                                return null;
-                              },
+                  : SingleChildScrollView(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          children: [
+                            Text(
+                              'REGISTER FOR FREE!!',
+                              style: TextStyle(fontSize: 35),
                             ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Row(
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: 'Business Name',
+                                    border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: Container(
+                                height: 50,
+                                width: MediaQuery.of(context).size.width,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Expanded(
-                                      child: TextFormField(
-                                        decoration: InputDecoration(
-                                            labelText: 'First Name',
-                                            border: OutlineInputBorder()),
-                                        // The validator receives the text that the user has entered.
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return 'Please enter First Name';
-                                          }
-                                          return null;
-                                        },
+                                      child: Container(
+                                        child: TextFormField(
+                                          decoration: InputDecoration(
+                                              labelText: 'First Name',
+                                              border: OutlineInputBorder()),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Please enter First Name';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 30,
+                                      width: 5,
                                     ),
                                     Expanded(
-                                      child: TextFormField(
-                                        decoration: InputDecoration(
-                                            labelText: 'Last Name',
-                                            border: OutlineInputBorder()),
-                                        // The validator receives the text that the user has entered.
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return 'Please enter Last name';
-                                          }
-                                          return null;
-                                        },
+                                      child: Container(
+                                        child: TextFormField(
+                                          decoration: InputDecoration(
+                                              labelText: 'Last Name',
+                                              border: OutlineInputBorder()),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Please enter Last Name';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  labelText: 'Mobile Number:',
-                                  border: OutlineInputBorder()),
-                              // The validator receives the text that the user has entered.
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                }
-                                return null;
-                              },
+                            SizedBox(
+                              height: 20,
                             ),
-                          ),
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  labelText: 'Address',
-                                  border: OutlineInputBorder()),
-                              // The validator receives the text that the user has entered.
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                }
-                                return null;
-                              },
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: 'Mobile Number',
+                                    border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  return null;
+                                },
+                              ),
                             ),
-                          ),
-                          ElevatedButton(
-                              onPressed: () => {}, child: Text('Submit'))
-                        ],
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    labelText: 'Address',
+                                    border: OutlineInputBorder()),
+// The validator receives the text that the user has entered.
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            ElevatedButton(
+                                onPressed: () => {}, child: Text('Submit'))
+                          ],
+                        ),
                       ),
                     ))),
     );
